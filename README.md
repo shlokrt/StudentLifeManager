@@ -84,7 +84,7 @@ StudentLifeManager/
     │   ├── Transaction.java         # Budget transaction entity
     │   ├── Assignment.java          # Assignment entity
     │   ├── Category.java            # Expense category enum
-    │   ├── TaskPriority .java            # Assignment priority enum
+    │   ├── TaskPriority.java            # Assignment priority enum
     │   └── TransactionType.java     # Income / Expense enum
     ├── manager/
     │   ├── BudgetManager.java       # Budget business logic
