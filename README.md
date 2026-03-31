@@ -1,6 +1,6 @@
 # Student Life Manager
 
-A JavaFX desktop application that helps students manage both their **budget** and **assignment deadlines** in one unified dashboard.
+A simple Java desktop application that helps students manage both their **budget** and **assignment deadlines** in one unified dashboard.
 
 ---
 
@@ -23,8 +23,8 @@ A JavaFX desktop application that helps students manage both their **budget** an
 
 ### Deadline Manager
 - Add assignments with subject, due date, priority, and notes
-- Priority levels: High 🔴 / Medium 🟡 / Low 🟢
-- Smart status indicators: overdue ⚠, due soon 🔔, completed ✅
+- Priority levels: High  / Medium  / Low 
+- Smart status indicators: overdue , due soon , completed 
 - Filter view: All / Pending / Overdue / Completed
 - Toggle completion with one click
 - Delete assignments
@@ -35,7 +35,7 @@ A JavaFX desktop application that helps students manage both their **budget** an
 
 | Technology | Purpose |
 |---|---|
-| Java 17 | Core language |
+| Java 20+ | Core language |
 | JavaFX 21 | GUI framework |
 | Gson 2.10.1 | JSON data persistence |
 | Maven | Build system |
@@ -52,7 +52,7 @@ A JavaFX desktop application that helps students manage both their **budget** an
 
 ```bash
 # 1. Clone or download the project
-git clone <your-repo-url>
+git clone https://github.com/shlokrt/StudentLifeManager
 cd StudentLifeManager
 
 # 2. Run with Maven
