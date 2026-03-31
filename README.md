@@ -3,6 +3,12 @@
 A simple Java desktop application that helps students manage both their **budget** and **assignment deadlines** in one unified dashboard.
 
 ---
+## Author
+
+**Name:** **Shlok Khanna** <br>
+**Reg. No.:**  **24BAI10235** <br>  
+BYOP Project of Programming in Java for VITyarthi Submission
+---
 
 ## Features
 
