@@ -1,30 +1,55 @@
 package com.studentlife.ui;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+
 import com.studentlife.manager.BudgetManager;
 import com.studentlife.manager.DeadlineManager;
-import com.studentlife.model.*;
+import com.studentlife.model.Assignment;
+import com.studentlife.model.Category;
+import com.studentlife.model.TaskPriority;
+import com.studentlife.model.Transaction;
+import com.studentlife.model.TransactionType;
 import com.studentlife.storage.DataStorage;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.*;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Separator;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 public class MainWindow {
     private final Stage stage;
@@ -109,7 +134,7 @@ public class MainWindow {
         navDeadlines.setOnMouseClicked(e  -> { activateNav(navDeadlines);  showDeadlines(); });
 
         Region spacer = new Region();
-        VBox.setVgrow(spacer, Priority.ALWAYS);
+        VBox.setVgrow(spacer, javafx.scene.layout.Priority.ALWAYS);
 
         Label footer = new Label("v1.0 — BYOP Project");
         footer.setFont(Font.font(11));
@@ -192,13 +217,13 @@ public class MainWindow {
             statCard("📉 Expenses",  fmt(budgetManager.getTotalExpenses()),  "#dc2626", DANGER),
             statCard("📅 Pending",   deadlineManager.countPending() + " tasks", "#7c3aed", WARNING)
         );
-        for (Node c : cards.getChildren()) HBox.setHgrow(c, Priority.ALWAYS);
+        for (Node c : cards.getChildren()) HBox.setHgrow(c, javafx.scene.layout.Priority.ALWAYS);
 
         // Bottom row: recent transactions + upcoming deadlines
         HBox bottomRow = new HBox(16);
         bottomRow.getChildren().addAll(buildRecentTransactions(), buildUpcomingDeadlines());
-        HBox.setHgrow(bottomRow.getChildren().get(0), Priority.ALWAYS);
-        HBox.setHgrow(bottomRow.getChildren().get(1), Priority.ALWAYS);
+        HBox.setHgrow(bottomRow.getChildren().get(0), javafx.scene.layout.Priority.ALWAYS);
+        HBox.setHgrow(bottomRow.getChildren().get(1), javafx.scene.layout.Priority.ALWAYS);
 
         // Spending by category
         VBox spendChart = buildSpendingChart();
@@ -266,7 +291,7 @@ public class MainWindow {
                 info.getChildren().addAll(desc, cat);
 
                 Region spacer = new Region();
-                HBox.setHgrow(spacer, Priority.ALWAYS);
+                HBox.setHgrow(spacer, javafx.scene.layout.Priority.ALWAYS);
 
                 boolean isIncome = t.getType() == TransactionType.INCOME;
                 Label amt = new Label((isIncome ? "+" : "-") + " ₹" + String.format("%.2f", t.getAmount()));
@@ -336,7 +361,7 @@ public class MainWindow {
 
             StackPane barContainer = new StackPane();
             barContainer.setMaxWidth(Double.MAX_VALUE);
-            HBox.setHgrow(barContainer, Priority.ALWAYS);
+            HBox.setHgrow(barContainer, javafx.scene.layout.Priority.ALWAYS);
 
             Rectangle bg = new Rectangle(1, 16);
             bg.setFill(Color.web("#e2e8f0"));
@@ -381,7 +406,7 @@ public class MainWindow {
         VBox titles = new VBox(2);
         titles.getChildren().addAll(pageTitle("Budget"), pageSubtitle("Track your income and expenses"));
         Region spacer = new Region();
-        HBox.setHgrow(spacer, Priority.ALWAYS);
+        HBox.setHgrow(spacer, javafx.scene.layout.Priority.ALWAYS);
         Button addBtn = primaryButton("+ Add Transaction");
         addBtn.setOnAction(e -> { showAddTransactionDialog(); showBudget(); });
         header.getChildren().addAll(titles, spacer, addBtn);
@@ -583,7 +608,7 @@ public class MainWindow {
         VBox titles = new VBox(2);
         titles.getChildren().addAll(pageTitle("Deadlines"), pageSubtitle("Manage your assignments and tasks"));
         Region spacer = new Region();
-        HBox.setHgrow(spacer, Priority.ALWAYS);
+        HBox.setHgrow(spacer, javafx.scene.layout.Priority.ALWAYS);
         Button addBtn = primaryButton("+ Add Assignment");
         addBtn.setOnAction(e -> { showAddAssignmentDialog(); showDeadlines(); });
         header.getChildren().addAll(titles, spacer, addBtn);
@@ -667,7 +692,7 @@ public class MainWindow {
 
         // Info
         VBox info = new VBox(4);
-        HBox.setHgrow(info, Priority.ALWAYS);
+        HBox.setHgrow(info, javafx.scene.layout.Priority.ALWAYS);
 
         Label titleLbl = new Label(a.getTitle());
         titleLbl.setFont(Font.font("System", FontWeight.BOLD, 14));
@@ -750,8 +775,8 @@ public class MainWindow {
         TextField subjectField = styledTextField("e.g. Mathematics");
         DatePicker datePicker  = new DatePicker(LocalDate.now().plusDays(7));
         datePicker.setPrefWidth(220);
-        ComboBox<Priority> prioBox = new ComboBox<>(FXCollections.observableArrayList(Priority.values()));
-        prioBox.setValue(Priority.MEDIUM);
+        ComboBox<TaskPriority> prioBox = new ComboBox<>(FXCollections.observableArrayList(TaskPriority.values()));
+        prioBox.setValue(TaskPriority.MEDIUM);
         prioBox.setPrefWidth(220);
         TextArea descArea = new TextArea();
         descArea.setPromptText("Optional notes or description...");
@@ -864,7 +889,7 @@ public class MainWindow {
         return l;
     }
 
-    private String priorityColor(Priority p) {
+    private String priorityColor(TaskPriority p) {
         return switch (p) {
             case HIGH   -> DANGER;
             case MEDIUM -> WARNING;

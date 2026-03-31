@@ -1,13 +1,13 @@
 package com.studentlife.model;
 
-public enum Priority {
+public enum TaskPriority {
     HIGH("🔴 High"),
     MEDIUM("🟡 Medium"),
     LOW("🟢 Low");
 
     private final String displayName;
 
-    Priority(String displayName) {
+    TaskPriority(String displayName) {
         this.displayName = displayName;
     }
 

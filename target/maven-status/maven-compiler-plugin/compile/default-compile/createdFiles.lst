@@ -1,0 +1,16 @@
+com\studentlife\ui\MainWindow$3.class
+com\studentlife\model\Category.class
+com\studentlife\storage\DataStorage$2.class
+com\studentlife\ui\MainWindow.class
+com\studentlife\storage\DataStorage$1.class
+com\studentlife\manager\DeadlineManager.class
+com\studentlife\storage\DataStorage.class
+com\studentlife\ui\MainWindow$2.class
+com\studentlife\model\Assignment.class
+com\studentlife\model\Transaction.class
+com\studentlife\model\TaskPriority.class
+com\studentlife\ui\MainWindow$1.class
+com\studentlife\manager\BudgetManager.class
+com\studentlife\Main.class
+com\studentlife\ui\MainWindow$4.class
+com\studentlife\model\TransactionType.class
