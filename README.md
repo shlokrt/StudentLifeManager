@@ -1,8 +1,8 @@
 
 ## BYOP Project Submission of Programming in Java for VITyarthi
 
-**Name:** **Shlok Khanna** <br>
-**Reg. No.:**  **24BAI10235** <br>  
+**Name:** **Shlok** <br>
+
 ---
 # Student Life Manager
 
