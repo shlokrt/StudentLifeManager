@@ -127,6 +127,6 @@ Two JSON files are created:
 
 ## Author
 
-**Name:** **Shlok Khanna** <br>
-**Reg. No.:**  **24BAI10235** <br>  
+**Name:** **Shlok** <br>
+  
 BYOP Project of Programming in Java for VITyarthi Submission
